@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ProductsPage(props) {
   console.log("Inside ProductsPage: ", { props });
 
@@ -12,6 +14,9 @@ function ProductsPage(props) {
             <li key={index}>
               <h3>{product.name}</h3>
               <p>£{product.price}</p>
+              <Link to={`/products/${product.id}`} state={{ product }}>
+              View Product
+              </Link>
             </li>
           );
         })}

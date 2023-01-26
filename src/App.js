@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
+import AppsPage from "./pages/Apps";
 import Home from "./pages/Home";
 import ProductsPage from "./pages/Products";
+import ViewProductPage from "./pages/ViewProduct";
 import "./styles.css";
 
 const productsData = [
@@ -80,6 +82,9 @@ export default function App() {
             <li>
               <Link to="/products">Products</Link>
             </li>
+            <li>
+              <Link to="/apps">Apps</Link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -89,6 +94,8 @@ export default function App() {
           element={<ProductsPage products={products} />}
         />
         <Route path="/" element={<Home />} />
+        <Route path="/apps" element={<AppsPage apps={appsData} />} />
+        <Route path="/products/:id" element={<ViewProductPage/>} />
       </Routes>
     </div>
   );
